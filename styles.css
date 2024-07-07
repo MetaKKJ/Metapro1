@@ -1,31 +1,41 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background-color: #f0f2f5;
 }
 
 .container {
     background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 500px;
     text-align: center;
+}
+
+h1 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
 }
 
 .author-display {
     font-size: 1em;
-    color: gray;
+    color: #555;
     margin-bottom: 10px;
 }
 
 .quote-display {
-    font-size: 1.2em;
+    font-size: 1.5em;
+    color: #333;
     margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
 }
 
 .quote-input {
@@ -35,21 +45,28 @@ body {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    margin-bottom: 20px;
 }
 
 .results {
     margin-top: 20px;
 }
 
+.results p {
+    font-size: 1em;
+    color: #555;
+    margin: 5px 0;
+}
+
 .start-button {
     padding: 10px 20px;
     font-size: 1em;
-    margin-top: 20px;
     cursor: pointer;
     border: none;
     border-radius: 5px;
     background-color: #007BFF;
     color: white;
+    transition: background-color 0.3s ease;
 }
 
 .start-button:hover {
