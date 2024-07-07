@@ -1,109 +1,54 @@
-const quotes = [
-    { 
-        text: "일찍 일어나는 새가 벌레를 잡는다.", 
-        author: "속담",
-        background: "이 속담은 일찍 일어나 부지런히 행동하면 성공을 거둘 수 있다는 뜻을 담고 있습니다.",
-        advice: "부지런함과 시간 관리의 중요성을 항상 기억하세요."
-    },
-    { 
-        text: "작은 고추가 맵다.", 
-        author: "속담",
-        background: "작은 것이 강할 수 있다는 의미로, 외모나 크기로 사람을 판단하지 말라는 교훈을 줍니다.",
-        advice: "자신의 능력을 과소평가하지 말고 항상 자신감을 가지세요."
-    },
-    { 
-        text: "하루하루가 새롭고 신비롭다.", 
-        author: "법정",
-        background: "법정 스님은 한국의 불교 승려로, 물질보다는 정신적 가치를 중요시하였습니다.",
-        advice: "매일매일을 소중히 여기고 감사하는 마음으로 생활하세요."
-    },
-    { 
-        text: "사람은 자신이 생각하는 것과 같은 사람이 된다.", 
-        author: "마하트마 간디",
-        background: "마하트마 간디는 비폭력 저항 운동을 이끌어 인도의 독립을 이끌어낸 지도자입니다.",
-        advice: "긍정적인 생각과 믿음이 당신의 삶을 변화시킬 수 있습니다."
-    },
-    { 
-        text: "세상에 속지 않기 위해서는 자신을 속이지 않으면 된다.", 
-        author: "에머슨",
-        background: "랄프 왈도 에머슨은 미국의 철학자이자 시인으로, 초월주의 운동을 이끌었습니다.",
-        advice: "자기 자신에게 정직하고 진실되게 살아가세요."
-    },
-    { 
-        text: "자신을 사랑하면 아무도 사랑하지 않는 것이다.", 
-        author: "괴테",
-        background: "요한 볼프강 폰 괴테는 독일의 문학가이자 철학자로, 여러 방면에서 많은 영향을 끼쳤습니다.",
-        advice: "자신을 사랑하되 타인도 함께 배려하는 균형 있는 삶을 추구하세요."
-    },
-    { 
-        text: "최선을 다하면 후회는 없다.", 
-        author: "나폴레옹",
-        background: "나폴레옹 보나파르트는 프랑스의 군사 지도자이자 황제로, 유럽 역사에 큰 영향을 미쳤습니다.",
-        advice: "매 순간 최선을 다하고, 결과에 연연하지 마세요."
-    },
-    { 
-        text: "실패는 성공의 어머니이다.", 
-        author: "속담",
-        background: "이 속담은 실패를 통해 배운 경험이 성공으로 이어진다는 교훈을 담고 있습니다.",
-        advice: "실패를 두려워하지 말고 배움의 기회로 삼으세요."
-    },
-    { 
-        text: "오늘 할 일을 내일로 미루지 마라.", 
-        author: "속담",
-        background: "이 속담은 게으름을 피우지 말고 제때 할 일을 하라는 경고를 담고 있습니다.",
-        advice: "시간 관리를 잘하여 목표를 차근차근 이뤄나가세요."
-    },
-    { 
-        text: "작은 변화가 큰 결과를 만든다.", 
-        author: "속담",
-        background: "작은 노력과 변화가 쌓여 큰 성과를 이룰 수 있다는 교훈을 줍니다.",
-        advice: "작은 것부터 시작하여 꾸준히 나아가세요."
-    },
-    // 추가 명언들...
-];
-
-let startTime;
-let endTime;
-const quoteDisplay = document.getElementById("quoteDisplay");
-const authorDisplay = document.getElementById("authorDisplay");
-const quoteInput = document.getElementById("quoteInput");
-const timeTaken = document.getElementById("timeTaken");
-const accuracy = document.getElementById("accuracy");
-const typingSpeed = document.getElementById("typingSpeed");
-const startButton = document.getElementById("startButton");
-const authorInfo = document.getElementById("authorInfo");
-
-startButton.addEventListener("click", () => {
-    const quote = quotes[Math.floor(Math.random() * quotes.length)];
-    quoteDisplay.textContent = quote.text;
-    authorDisplay.textContent = `- ${quote.author}`;
-    quoteInput.value = "";
-    quoteInput.disabled = false;
-    quoteInput.focus();
-    startTime = new Date().getTime();
-    timeTaken.textContent = "소요 시간: 0초";
-    accuracy.textContent = "정확도: 0%";
-    typingSpeed.textContent = "타자 속도: 0 자/분";
-    authorInfo.innerHTML = "";
-});
-
-quoteInput.addEventListener("input", () => {
-    const quote = quoteDisplay.textContent;
-    const input = quoteInput.value;
-    if (input === quote) {
-        endTime = new Date().getTime();
-        const timeElapsed = (endTime - startTime) / 1000;
-        const charsTyped = quote.length;
-        const cpm = (charsTyped / timeElapsed) * 60; // 분당 타자 수
-        timeTaken.textContent = `소요 시간: ${timeElapsed.toFixed(2)}초`;
-        typingSpeed.textContent = `타자 속도: ${cpm.toFixed(2)} 자/분`;
-
-        const accuracyValue = (input.split("").filter((char, index) => char === quote[index]).length / quote.length) * 100;
-        accuracy.textContent = `정확도: ${accuracyValue.toFixed(2)}%`;
-
-        quoteInput.disabled = true;
-
-        const quoteAuthor = quotes.find(q => q.text === quote);
-        authorInfo.innerHTML = `<strong>${quoteAuthor.author}</strong><br>${quoteAuthor.background}<br><br><em>${quoteAuthor.advice}</em>`;
-    }
-});
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MetaKKJ - 혁신과 협력</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>MetaKKJ</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">홈</a></li>
+                <li><a href="#about">소개</a></li>
+                <li><a href="#typing-practice">타자 연습</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <h2>함께 더 나은 세상을</h2>
+            <p>MetaKKJ는 사람들과 함께 세상을 더 이롭게 만드는 것을 목표로 합니다. 이 웹사이트는 여러분이 명언을 연습하면서 자신의 가치를 발견하고 삶에 의미를 더할 수 있도록 도와줍니다.</p>
+        </section>
+        <section id="about">
+            <h2>소개</h2>
+            <p>우리의 가치는 올바르고 정직하며 항상 선을 향합니다. 우리는 혁신적이고 창의적인 사고를 통해 변화를 주도하고, 화합과 협력을 통해 더 나은 세상을 만들어갑니다.</p>
+        </section>
+        <section id="typing-practice">
+            <h2>타자 연습</h2>
+            <button id="startPracticeButton">타자 연습 시작</button>
+            <div id="practiceSection" class="hidden">
+                <div id="authorDisplay" class="author-display"></div>
+                <div id="quoteDisplay" class="quote-display"></div>
+                <textarea id="quoteInput" class="quote-input" placeholder="여기에 입력하세요..."></textarea>
+                <div class="results">
+                    <p id="timeTaken">소요 시간: 0초</p>
+                    <p id="accuracy">정확도: 0%</p>
+                    <p id="typingSpeed">타자 속도: 0 자/분</p>
+                </div>
+                <button id="startButton" class="start-button">새 명언</button>
+                <div id="authorInfo" class="author-info"></div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 MetaKKJ. 모두를 위한 더 나은 세상을 향해.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
