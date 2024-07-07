@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타자 연습</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>타자 연습</h1>
+        <div id="authorDisplay" class="author-display"></div>
+        <div id="quoteDisplay" class="quote-display"></div>
+        <textarea id="quoteInput" class="quote-input" placeholder="여기에 입력하세요..."></textarea>
+        <div class="results">
+            <p id="timeTaken">소요 시간: 0초</p>
+            <p id="accuracy">정확도: 0%</p>
+            <p id="typingSpeed">타자 속도: 0 자/분</p>
+        </div>
+        <button id="startButton" class="start-button">시작</button>
+        <div id="authorInfo" class="author-info"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
